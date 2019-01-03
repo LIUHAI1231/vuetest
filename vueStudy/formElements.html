@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+  [v-cloak]{display: none}
+  </style>
+</head>
+<body>
+  <div id="checkBox" v-cloak >
+    <input type="checkbox" v-model="ischecked">{{ischecked}}
+  </div>
+
+  <div id="checkBoxs" v-cloak>
+    爱好：
+    <label for="swim"><input type="checkbox" id="swim" v-model="favorite" value="swim"> 游泳</label>
+    <label for="climb"><input type="checkbox" id="climb" v-model="favorite" value="climb"> 爬山</label>
+    <label for="sleep"><input type="checkbox" id="sleep" v-model="favorite" value="sleep"> 睡觉</label>
+    {{favorite}}
+  </div>
+  
+  <div id="radios" v-cloak>
+    爱好：
+    <label for="radio-1"><input type="radio" name="favorite" id="radio-1" v-model="ischecked" value="swim">游泳</label>
+    <label for="radio-2"><input type="radio" name="favorite" id="radio-2" v-model="ischecked" value="climb">爬山</label>
+    {{ischecked}}
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    let checkBox = new Vue({
+      el: '#checkBox',
+      data: {
+        ischecked: true
+      }
+    });
+
+    let checkBoxs = new Vue({
+      el: '#checkBoxs',
+      data: {
+        favorite: [],
+      }
+    });
+
+    let radios = new Vue({
+      el: '#radios',
+      data: {
+        ischecked: 'swim',
+      }
+    })
+  </script>
+</body>
+</html>

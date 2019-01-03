@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>todoList</title>
+  <link href="https://cdn.bootcss.com/twitter-bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <div id="todo">
+    <input type="text" v-model="listMsg" v-on:keyup.enter="addList">
+    <ul>
+      <li v-for="(item,index) in items">{{item}} <button v-on:click="deleteItem(index)">删除</button></li>
+    </ul>
+  </div>
+</body>
+<script src="https://cdn.bootcss.com/twitter-bootstrap/4.2.1/js/bootstrap.min.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+  let vm = new Vue({
+    el: "#todo",
+    data: {
+      items: [],
+      listMsg: '',
+    },
+    methods: {
+      addList(){
+        this.items.unshift(this.listMsg);
+        this.listMsg = '';
+      },
+      deleteItem(index){
+        this.items.splice(index,1);
+      }
+    },
+  })
+</script>
+
+</html>
